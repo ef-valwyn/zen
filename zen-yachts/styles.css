@@ -1,0 +1,162 @@
+/* ------------------------------------------------------
+   Zen Yachts — Brand System
+   Palette: Deep Ocean (primary), Foam (white), Tidal Green (accent)
+--------------------------------------------------------- */
+:root{
+  --ocean-900:#0B1F3B; /* deep navy */
+  --ocean-800:#10294D;
+  --ocean-700:#153461;
+  --foam-000:#FFFFFF;
+  --foam-100:#F7FBFF;
+  --foam-200:#EAF2FB;
+  --tide-500:#1FBF90;  /* oceanic green accent */
+  --tide-600:#17A67E;
+  --ink-700:#112031;   /* body text */
+  --ink-500:#41556B;   /* secondary text */
+  --shadow:0 10px 30px rgba(0,0,0,.22);
+  --radius-2:12px; 
+  --radius-3:20px;
+  --max:1200px;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; color:var(--ink-700); background:var(--foam-100);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.6;
+}
+img,video{max-width:100%; display:block}
+.container{max-width:var(--max); margin-inline:auto; padding:0 24px}
+
+/* Typography */
+.display{font-family:"Playfair Display", Georgia, serif; font-size:clamp(28px,3.2vw,48px); line-height:1.15; color:var(--ocean-900)}
+.eyebrow{letter-spacing:.12em; text-transform:uppercase; font-weight:600; font-size:.85rem; color:var(--tide-600)}
+.accent{color:var(--tide-500)}
+.textlink{color:var(--ocean-900); text-decoration:none; border-bottom:1px solid rgba(21,52,97,.35)}
+.textlink:hover{border-bottom-color:var(--tide-500)}
+
+/* Utility/top brand bar */
+.utility{background:linear-gradient(90deg,var(--ocean-900),var(--ocean-700)); color:#cfe6ff}
+.utility .container{display:flex; align-items:center; justify-content:space-between; padding:8px 24px}
+.utility__brand{font-weight:700; letter-spacing:.12em}
+.utility__tag{font-size:.9rem; opacity:.9}
+
+/* Sticky nav */
+.nav{position:fixed; top:-80px; left:0; right:0; z-index:50; transition:top .4s ease, background .4s; backdrop-filter:saturate(150%) blur(10px);}
+.nav--visible{top:0;}
+.nav__inner{display:flex; gap:16px; align-items:center; justify-content:space-between; padding:14px 24px}
+.nav{background:rgba(11,31,59,.6); border-bottom:1px solid rgba(255,255,255,.08)}
+.nav__logo{color:#e9f3ff; font-weight:700; text-decoration:none; letter-spacing:.1em}
+.nav__links a{color:#e9f3ff; text-decoration:none; margin:0 12px; font-weight:500}
+.nav__links a:hover{opacity:.85}
+
+/* Buttons */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid transparent; cursor:pointer}
+.btn--pill{border-radius:999px}
+.btn--primary{background:linear-gradient(90deg,var(--tide-600),var(--tide-500)); color:white; box-shadow:var(--shadow)}
+.btn--primary:hover{filter:brightness(1.05)}
+.btn--ghost{background:transparent; color:var(--foam-000); border-color:rgba(255,255,255,.35)}
+.btn--ghost:hover{background:rgba(255,255,255,.08)}
+
+/* Hero */
+.hero{position:relative; min-height:86vh; display:grid; align-items:end; color:white}
+.hero__media{position:absolute; inset:0; overflow:hidden}
+.hero__video{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.05)}
+.hero__overlay{position:absolute; inset:0; background:linear-gradient(to bottom, rgba(7,17,33,.45), rgba(7,17,33,.65) 55%, rgba(7,17,33,.85))}
+.hero__content{position:relative; padding-bottom:12vh}
+.hero__title{font-family:"Playfair Display", Georgia, serif; font-size:clamp(36px,6vw,72px); line-height:1.05; margin:0 0 12px}
+.hero__sub{max-width:740px; font-size:clamp(16px,1.6vw,18px); color:#d5e8ff}
+.hero__cta{margin-top:24px; display:flex; gap:14px}
+
+/* Infinity motif */
+.infinity{position:absolute; right:24px; bottom:24px; width:120px; height:60px; opacity:.14}
+.infinity span{position:absolute; inset:0; border:2px solid #fff; border-radius:60px 60px 0 60px; transform:rotate(45deg)}
+.infinity span:last-child{transform:rotate(-45deg)}
+
+/* Sections */
+.section{padding:84px 0; background:var(--foam-100)}
+.section--light{background:var(--foam-200)}
+.grid{display:grid; gap:28px}
+.grid--2{grid-template-columns:1fr}
+@media (min-width:900px){.grid--2{grid-template-columns:1.05fr .95fr}}
+
+.card{background:var(--foam-000); border-radius:var(--radius-3); box-shadow:var(--shadow); overflow:hidden}
+.card__media{background:#0e223f}
+.card__body{padding:20px}
+.divider{height:1px; background:#E1E8F5; margin:16px 0}
+
+/* Feature grid */
+.featuregrid{display:grid; grid-template-columns:1fr; gap:20px; margin:20px 0 10px}
+@media (min-width:720px){.featuregrid{grid-template-columns:repeat(2,1fr)}}
+.feature h4{margin:0 0 6px; color:var(--ocean-900)}
+
+/* Specs */
+.specs{margin-top:32px}
+.specs__title{margin:0 0 12px}
+.specs__grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px}
+@media (min-width:720px){.specs__grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.specs__grid div{background:var(--foam-000); border-radius:var(--radius-2); padding:12px 14px; box-shadow:0 4px 12px rgba(10,30,60,.06)}
+.specs__grid span{display:block; color:var(--ink-500); font-size:.85rem}
+.specs__grid strong{display:block; color:var(--ocean-900)}
+
+/* Parallax bands */
+.para{position:relative; height:44vh; background-attachment:fixed; background-position:center; background-size:cover}
+.para--ocean{background-image:linear-gradient(rgba(11,31,59,.35),rgba(11,31,59,.55)), url('assets/para-ocean.jpg')}
+.para--wake{background-image:linear-gradient(rgba(11,31,59,.2),rgba(11,31,59,.5)), url('assets/para-wake.jpg')}
+.para--green{background-image:linear-gradient(rgba(31,191,144,.15),rgba(11,31,59,.5)), url('assets/para-green.jpg')}
+
+/* Background placeholders */
+.bg--ocean{background:linear-gradient(135deg,#0B1F3B,#153461)}
+.bg--wake{background:radial-gradient(80% 60% at 20% 40%, #1FBF90 0%, #0B1F3B 60%, #10294D 100%)}
+.bg--green{background:linear-gradient(135deg,#1FBF90,#17A67E)}
+.bg--grid{background-image:linear-gradient(#e8f1ff 1px, transparent 1px),linear-gradient(90deg,#e8f1ff 1px, transparent 1px); background-size:20px 20px; background-color:#f8fbff}
+
+/* Aspect‑ratios */
+.ratio{position:relative; overflow:hidden; border-radius:var(--radius-2); box-shadow:0 6px 22px rgba(10,30,60,.12)}
+.ratio::before{content:""; display:block}
+.ratio--16x9::before{padding-top:56.25%}
+.ratio--4x3::before{padding-top:75%}
+.ratio--1x1::before{padding-top:100%}
+
+/* Media stack */
+.media-stack{position:relative}
+.media-stack__top,.media-stack__bottom{position:relative;}
+.media-stack__top{transform:translate(0,0);}
+.media-stack__bottom{margin-top:-14%; margin-left:12%; filter:brightness(.98);}
+
+/* Masonry (simple responsive grid) */
+.masonry{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+@media (min-width:900px){.masonry{grid-template-columns:repeat(4,1fr)}}
+.tile{border-radius:var(--radius-2)}
+
+/* Lists */
+.ticklist{list-style:none; padding-left:0}
+.ticklist li{position:relative; padding-left:28px; margin:10px 0}
+.ticklist li::before{content:""; position:absolute; left:0; top:.35em; width:16px; height:16px; border-radius:50%; background:radial-gradient(circle at 30% 30%, var(--tide-500), var(--tide-600)); box-shadow:0 2px 6px rgba(0,0,0,.15)}
+
+/* Forms */
+.form{display:grid; gap:14px}
+.form__row{display:grid; gap:14px; grid-template-columns:1fr}
+@media (min-width:720px){.form__row{grid-template-columns:1fr 1fr}}
+label{display:grid; gap:6px; font-weight:600; color:var(--ocean-900)}
+input, select, textarea{
+  padding:12px 14px; border-radius:12px; border:1px solid #d7e3f5; background:var(--foam-000); color:var(--ink-700);
+  font:inherit; outline:none; box-shadow:0 2px 10px rgba(9,25,44,.04);
+}
+input:focus, select:focus, textarea:focus{border-color:var(--tide-500); box-shadow:0 0 0 3px rgba(31,191,144,.15)}
+
+/* Footer */
+.footer{background:linear-gradient(180deg,var(--ocean-800),var(--ocean-900)); color:#e7f0ff; padding:28px 0}
+.footer__inner{display:grid; gap:16px; align-items:center; justify-content:space-between; grid-template-columns:1fr}
+@media (min-width:900px){.footer__inner{grid-template-columns:auto 1fr auto}}
+.footer__brand{font-weight:800; letter-spacing:.12em}
+.footer__nav a{color:#e7f0ff; margin:0 10px; text-decoration:none}
+.footer__nav a:hover{opacity:.85}
+.footer__legal{opacity:.8; font-size:.9rem; text-align:left}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important; transition:none !important}
+}
